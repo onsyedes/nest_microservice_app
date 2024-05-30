@@ -4,11 +4,11 @@ import { ModelDefinition, MongooseModule } from '@nestjs/mongoose';
 //useFactory is going to tell nest how it is going to create the mongoose module options
 @Module({
   imports: [
-    ConfigModule.forRoot({
-      isGlobal: true,
-    }),
+    // ConfigModule.forRoot({
+    //   isGlobal: true,
+    // }),
     MongooseModule.forRootAsync({
-      imports: [ConfigModule],
+      // imports: [ConfigModule],
       inject: [ConfigService],
       useFactory: (configService: ConfigService) => ({
         uri: configService.get('MONGODB_URI'),
